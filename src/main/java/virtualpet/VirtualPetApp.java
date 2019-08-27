@@ -15,20 +15,11 @@ public class VirtualPetApp {
 		promptEnterKey();
 		pet.firstSelection();
 
-		int makeSelection = 0;
+		int makeSelection = -1;
 
-		while (pet.hunger <= 50 && pet.thirst <= 50 && pet.tiredness <= 50 && pet.boredom <= 50) {
-			while (!input.hasNextInt()) {
-				String makeSelectionInput = input.next();
-				System.out.println("Please enter your selection as a number. Valid numbers are 0 through 6.");
-			}
-			makeSelection = input.nextInt();
-			while (!(makeSelection >= 0) && !(makeSelection <= 6)) {
-//				makeSelection = input.nextInt();
-				System.out.println("Valid selections are numbers 0 through 6.");
-			}
-//			makeSelection = input.nextInt();
-			if (makeSelection >= 0 && makeSelection <= 6) {
+		while (pet.hunger <= 200 && pet.thirst <= 200 && pet.tiredness <= 200 && pet.boredom <= 200) {
+			makeSelection = readInput();
+			
 				switch (makeSelection) {
 				case 0:
 					pet.status();
@@ -59,11 +50,14 @@ public class VirtualPetApp {
 					promptEnterKey();
 					break;
 				}
+				pet.selection();
 			}
-			pet.selection();
-		}
+		if(pet.hunger > 200 || pet.thirst > 200 || pet.tiredness > 200 || pet.boredom > 200) {
+			System.out.println(pet.name + "didn't get the attention they needed. \n\n"
+					+ "Game Over.");
+		} 
 		pet.status();
-	}
+		}
 
 	static String introduction() {
 		System.out.println("Hello, welcome to your virtual pet game!");
@@ -101,6 +95,22 @@ public class VirtualPetApp {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		scanner.nextLine();
+	}
+	
+	private static int readInput() {
+		int selection = -1;
+		if(!input.hasNextInt()) {
+			String makeSelectionInput = input.next();
+			System.out.println("Please enetr your selection as a number. Valid numbers are 0 through 6.");
+			selection  = readInput();
+		} else if(input.hasNextInt()) {
+			selection = input.nextInt();
+			if(selection < 0 || selection > 6) {
+				System.out.println("Valid numbers are 0 through 6.");
+				selection = readInput();
+			}
+		}
+		return selection;
 	}
 
 }

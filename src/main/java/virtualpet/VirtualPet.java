@@ -6,7 +6,7 @@ public class VirtualPet {
 	Integer thirst;
 	Integer tiredness;
 	Integer boredom;
-	Boolean isbored;
+	Boolean isBored;
 	Boolean needMail;
 	
 	
@@ -32,6 +32,7 @@ public class VirtualPet {
 		System.out.println();
 		System.out.println("Hunger level:		|  " + hunger);
 		System.out.println("Thirst level:		|  " + thirst);
+		System.out.println("Tiredness level:|  " + tiredness);
 		System.out.println("Boredom is:		|  " + boredom);
 		System.out.println("Mail needs checked:	|  " + needMail);
 	}
