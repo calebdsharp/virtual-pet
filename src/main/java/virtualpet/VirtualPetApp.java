@@ -13,50 +13,56 @@ public class VirtualPetApp {
 		pet.status();
 		System.out.println();
 		promptEnterKey();
-		pet.selection();
+		pet.firstSelection();
 
 		int makeSelection = 0;
-		while (!input.hasNextInt()) {
-			String makeSelectionInput = input.next();
-			System.out.println("Please enter your selection as a number. Valid numbers are 0 through 6.");
 
-//		int makeSelection = 0;
-//		makeSelection = input.nextInt();
-
-			while (input.hasNextInt()) {
-				makeSelection = input.nextInt();
-				if (makeSelection < 0 || makeSelection > 6) {
-					System.out.println("Valid numbers are 0 through 6.");
-				} else {
+		while (pet.hunger <= 50 && pet.thirst <= 50 && pet.tiredness <= 50 && pet.boredom <= 50) {
+			while (!input.hasNextInt()) {
+				String makeSelectionInput = input.next();
+				System.out.println("Please enter your selection as a number. Valid numbers are 0 through 6.");
+			}
+			makeSelection = input.nextInt();
+			while (!(makeSelection >= 0) && !(makeSelection <= 6)) {
+//				makeSelection = input.nextInt();
+				System.out.println("Valid selections are numbers 0 through 6.");
+			}
+//			makeSelection = input.nextInt();
+			if (makeSelection >= 0 && makeSelection <= 6) {
+				switch (makeSelection) {
+				case 0:
+					pet.status();
+					promptEnterKey();
+					break;
+				case 1:
+					pet.feed();
+					promptEnterKey();
+					break;
+				case 2:
+					pet.water();
+					promptEnterKey();
+					break;
+				case 3:
+					pet.fetch();
+					promptEnterKey();
+					break;
+				case 4:
+					pet.rollOver();
+					promptEnterKey();
+					break;
+				case 5:
+					pet.shake();
+					promptEnterKey();
+					break;
+				case 6:
+					pet.checkMail();
+					promptEnterKey();
 					break;
 				}
 			}
-		}
-
-		makeSelection = input.nextInt();
-		switch (makeSelection) {
-		case 0:
 			pet.selection();
-			break;
-		case 1:
-			pet.feed();
-			break;
-		case 2:
-			pet.water();
-			break;
-		case 3:
-			pet.fetch();
-			break;
-		case 4:
-			pet.rollOver();
-			break;
-		case 5:
-			pet.shake();
-			break;
-		case 6:
-			pet.checkMail();
-			break;
 		}
+		pet.status();
 	}
 
 	static String introduction() {
