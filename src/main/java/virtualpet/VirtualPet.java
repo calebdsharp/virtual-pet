@@ -17,9 +17,11 @@ public class VirtualPet {
 		this.thirst = 15;
 		this.tiredness = 5;
 		this.boredom = 25;
+		this.mailCount = 0;
+		this.isBored = true;
 		this.needMail = false;
 	}
-	
+
 	public void tick() {
 		hunger += 15;
 		thirst += 10;
@@ -27,36 +29,6 @@ public class VirtualPet {
 		boredom += 15;
 		mailCount += 5;
 	}
-	
-	
-	public void firstSelection() {
-//		System.out.println(name + " is all set! What would you like to do first?");
-//		System.out.println();
-//		System.out.println("Make a selection using numbers 0 through 6: ");
-//		System.out.println("0. View Status");
-//		System.out.println("1. Feed " + name);
-//		System.out.println("2. Water " + name);
-//		System.out.println("3. Play fetch with " + name);
-//		System.out.println("4. Tell " + name + " to roll over");
-//		System.out.println("5. Ask " + name + " to shake");
-//		System.out.println("6. Have " + name + " check the mail");
-//		System.out.println();
-//		
-	}
-//	public void selection() {
-//		System.out.println("What would you like to do next?");
-//		System.out.println();
-//		System.out.println("Make a selection using numbers 0 through 6: ");
-//		System.out.println("0. View Status");
-//		System.out.println("1. Feed " + name);
-//		System.out.println("2. Water " + name);
-//		System.out.println("3. Play fetch with " + name);
-//		System.out.println("4. Tell " + name + " to roll over");
-//		System.out.println("5. Ask " + name + " to shake");
-//		System.out.println("6. Have " + name + " check the mail");
-//		System.out.println();
-//		
-//	}
 	
 	public void feed() {
 		hunger -= 5;
@@ -97,6 +69,7 @@ public class VirtualPet {
 	}
 	
 	public void checkMail() {
+		mailCount -= mailCount;
 	}
 	
 }
