@@ -7,8 +7,6 @@ public class VirtualPet {
 	Integer tiredness;
 	Integer boredom;
 	Integer mailCount;
-	Boolean isBored;
-	Boolean needMail;
 	
 	
 	public VirtualPet(String name) {
@@ -18,8 +16,6 @@ public class VirtualPet {
 		this.tiredness = 5;
 		this.boredom = 25;
 		this.mailCount = 0;
-		this.isBored = true;
-		this.needMail = false;
 	}
 
 	public void tick() {
