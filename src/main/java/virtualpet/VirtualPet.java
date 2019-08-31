@@ -7,8 +7,8 @@ public class VirtualPet {
 	Integer tiredness;
 	Integer boredom;
 	Integer mailCount;
-	
-	
+
+
 	public VirtualPet(String name) {
 		this.name = name;
 		this.hunger = 15;
@@ -25,19 +25,19 @@ public class VirtualPet {
 		boredom += 15;
 		mailCount += 5;
 	}
-	
+
 	public void feed() {
 		hunger -= 5;
 		thirst += 5;
 		tick();
 	}
-	
+
 	public void water() {
 		thirst -= 5;
 		hunger -= 5;
 		tick();
 	}
-	
+
 	public void fetch() {
 		boredom -= 20;
 		tiredness += 10;
@@ -45,7 +45,7 @@ public class VirtualPet {
 		thirst += 10;
 		tick();
 	}
-	
+
 	public void rollOver() {
 		boredom -= 10;
 		tiredness += 5;
@@ -53,19 +53,19 @@ public class VirtualPet {
 		thirst += 5;
 		tick();
 	}
-	
+
 	public void shake() {
 		boredom -= 5;
 		tick();
 	}
-	
+
 	public void sleep() {
 		tiredness -= 20;
 		hunger += 5;
 	}
-	
+
 	public void checkMail() {
 		mailCount -= mailCount;
 	}
-	
+
 }
