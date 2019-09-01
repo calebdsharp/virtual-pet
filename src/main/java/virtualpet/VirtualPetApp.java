@@ -213,7 +213,7 @@ public class VirtualPetApp {
 		if (!input.hasNextInt()) {
 			@SuppressWarnings("unused")
 			String makeSelectionInput = input.next();
-			System.out.println("Please enetr your selection as a number. Valid numbers are 0 through 7. \n"
+			System.out.println("Please enter your selection as a number. Valid numbers are 0 through 7. \n"
 					+ "Please make a valid entry: ");
 			selection = readInput();
 		} else if (input.hasNextInt()) {
